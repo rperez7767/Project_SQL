@@ -1,0 +1,35 @@
+#######Basic query to view the customer_purchase table located in the customer_data dataset
+select *
+from `testproject2-351920.customer_data.customer_purchase`
+limit 50
+
+
+
+#######Query to view everything that contains fan in the product colomn
+select *
+from `testproject2-351920.customer_data.customer_purchase`
+where product = 'fan'
+
+
+
+#######Counts all the "fan" in the product column and returns the total in a new column labeled total_ans
+select count(product) as total_fans
+from `testproject2-351920.customer_data.customer_purchase`
+where product='fan'
+
+
+
+#######Counts all the "fan" in product and returns the total in a new column labeled total_ans
+select count(product) as total_fans, product_color
+from `testproject2-351920.customer_data.customer_purchase`
+where product='fan'
+group by product_color
+
+
+
+
+#######Returns total fans bought and the color. Query grouped by the color to show most common color fan bought.
+select count(product) as total_fans, product_color
+from `testproject2-351920.customer_data.customer_purchase`
+where product='fan'
+group by product_color
