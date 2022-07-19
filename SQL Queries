@@ -33,3 +33,19 @@ select count(product) as total_fans, product_color
 from `testproject2-351920.customer_data.customer_purchase`
 where product='fan'
 group by product_color
+
+
+
+#######returns the product, color and revenue generated from each sale. Ordered by most revenue to least. Excludes any Null products.
+select product, product_color, revenue
+from `testproject2-351920.customer_data.customer_purchase`
+where product <> 'null'
+order by revenue desc
+
+
+
+########### Left Joins the customer_address table with the customer_purchase table using the customer_id key.
+select *
+from `testproject2-351920.customer_data.customer_address`
+left join `testproject2-351920.customer_data.customer_purchase`
+on `testproject2-351920.customer_data.customer_address`.customer_id = `testproject2-351920.customer_data.customer_purchase`.customer_id 
